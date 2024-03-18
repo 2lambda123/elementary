@@ -21,11 +21,13 @@ class LineageFetcher(FetcherClient):
                 nodes_depends_on_nodes.append(
                     NodeDependsOnNodesSchema(
                         unique_id=node_depends_on_nodes_result.get("unique_id"),
-                        depends_on_nodes=json.loads(
-                            node_depends_on_nodes_result.get("depends_on_nodes")
-                        )
-                        if node_depends_on_nodes_result.get("depends_on_nodes")
-                        else None,
+                        depends_on_nodes=(
+                            json.loads(
+                                node_depends_on_nodes_result.get("depends_on_nodes")
+                            )
+                            if node_depends_on_nodes_result.get("depends_on_nodes")
+                            else None
+                        ),
                         type=node_depends_on_nodes_result.get("type"),
                     )
                 )

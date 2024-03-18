@@ -80,23 +80,23 @@ class GroupOfAlerts:
         )
         self._fill_components_to_alerts()
         hashtag = SlackMessageBuilder._HASHTAG
-        self._components_to_attention_required: Dict[
-            NotificationComponent, str
-        ] = dict()
-        self._components_to_attention_required[
-            TagsComponent
-        ] = list_of_lists_of_strings_to_comma_delimited_unique_strings(
-            [alert.tags or [] for alert in alerts], prefix=hashtag
+        self._components_to_attention_required: Dict[NotificationComponent, str] = (
+            dict()
         )
-        self._components_to_attention_required[
-            OwnersComponent
-        ] = list_of_lists_of_strings_to_comma_delimited_unique_strings(
-            [alert.owners or [] for alert in alerts]
+        self._components_to_attention_required[TagsComponent] = (
+            list_of_lists_of_strings_to_comma_delimited_unique_strings(
+                [alert.tags or [] for alert in alerts], prefix=hashtag
+            )
         )
-        self._components_to_attention_required[
-            SubsComponent
-        ] = list_of_lists_of_strings_to_comma_delimited_unique_strings(
-            [alert.subscribers or [] for alert in alerts]
+        self._components_to_attention_required[OwnersComponent] = (
+            list_of_lists_of_strings_to_comma_delimited_unique_strings(
+                [alert.owners or [] for alert in alerts]
+            )
+        )
+        self._components_to_attention_required[SubsComponent] = (
+            list_of_lists_of_strings_to_comma_delimited_unique_strings(
+                [alert.subscribers or [] for alert in alerts]
+            )
         )
 
         self._message_builder = (

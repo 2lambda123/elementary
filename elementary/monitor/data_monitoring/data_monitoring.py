@@ -92,12 +92,12 @@ class DataMonitoring:
 
     def _download_dbt_package_if_needed(self, force_update_dbt_packages: bool):
         internal_dbt_package_up_to_date = dbt_project_utils.is_dbt_package_up_to_date()
-        self.execution_properties[
-            "dbt_package_up_to_date"
-        ] = internal_dbt_package_up_to_date
-        self.execution_properties[
-            "force_update_dbt_packages"
-        ] = force_update_dbt_packages
+        self.execution_properties["dbt_package_up_to_date"] = (
+            internal_dbt_package_up_to_date
+        )
+        self.execution_properties["force_update_dbt_packages"] = (
+            force_update_dbt_packages
+        )
         if not internal_dbt_package_up_to_date or force_update_dbt_packages:
             logger.info("Downloading edr internal dbt package")
             package_downloaded = self.internal_dbt_runner.deps()
