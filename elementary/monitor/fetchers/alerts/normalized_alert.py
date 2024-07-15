@@ -83,10 +83,10 @@ class NormalizedAlert:
             normalized_alert[MODEL_META_KEY] = flattened_model_meta
             normalized_alert[TEST_META_KEY] = flattened_test_meta
 
-            normalized_alert[
-                SUBSCRIBERS_KEY
-            ] = unpack_and_flatten_and_dedup_list_of_strings(
-                self._get_alert_meta_attrs(SUBSCRIBERS_KEY)
+            normalized_alert[SUBSCRIBERS_KEY] = (
+                unpack_and_flatten_and_dedup_list_of_strings(
+                    self._get_alert_meta_attrs(SUBSCRIBERS_KEY)
+                )
             )
             normalized_alert[OWNERS_KEY] = unpack_and_flatten_and_dedup_list_of_strings(
                 self._get_alert_meta_attrs("owner")
@@ -96,15 +96,15 @@ class NormalizedAlert:
             )
 
             normalized_alert["slack_channel"] = self._get_alert_channel()
-            normalized_alert[
-                ALERT_SUPPRESSION_INTERVAL_KEY
-            ] = self._get_alert_suppression_interval()
+            normalized_alert[ALERT_SUPPRESSION_INTERVAL_KEY] = (
+                self._get_alert_suppression_interval()
+            )
             normalized_alert[ALERT_FIELDS_KEY] = self._get_alert_fields()
 
-            normalized_alert[
-                SLACK_GROUP_ALERTS_BY_KEY
-            ] = self._get_field_from_test_meta_or_model_meta_or_default(
-                key=SLACK_GROUP_ALERTS_BY_KEY
+            normalized_alert[SLACK_GROUP_ALERTS_BY_KEY] = (
+                self._get_field_from_test_meta_or_model_meta_or_default(
+                    key=SLACK_GROUP_ALERTS_BY_KEY
+                )
             )
 
             return normalized_alert

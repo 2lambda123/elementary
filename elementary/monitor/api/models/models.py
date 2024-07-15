@@ -179,20 +179,17 @@ class ModelsAPI(APIClient):
     @overload
     def _normalize_dbt_artifact_dict(
         self, artifact: ModelSchema
-    ) -> NormalizedModelSchema:
-        ...
+    ) -> NormalizedModelSchema: ...
 
     @overload
     def _normalize_dbt_artifact_dict(
         self, artifact: ExposureSchema
-    ) -> NormalizedExposureSchema:
-        ...
+    ) -> NormalizedExposureSchema: ...
 
     @overload
     def _normalize_dbt_artifact_dict(
         self, artifact: SourceSchema
-    ) -> NormalizedSourceSchema:
-        ...
+    ) -> NormalizedSourceSchema: ...
 
     def _normalize_dbt_artifact_dict(
         self, artifact: Union[ModelSchema, ExposureSchema, SourceSchema]
