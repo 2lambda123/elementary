@@ -43,7 +43,7 @@ def sum_lists(list_of_lists: List[List]) -> List:
 
 
 def unpack_and_flatten_and_dedup_list_of_strings(
-    list_maybe_jsoned: Optional[Union[List[str], str]]
+    list_maybe_jsoned: Optional[Union[List[str], str]],
 ) -> List[str]:
     if not list_maybe_jsoned:
         return []

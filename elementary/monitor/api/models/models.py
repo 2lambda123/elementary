@@ -18,11 +18,17 @@ from elementary.monitor.api.models.schema import (
 )
 from elementary.monitor.api.totals_schema import TotalsSchema
 from elementary.monitor.fetchers.models.models import ModelsFetcher
-from elementary.monitor.fetchers.models.schema import ArtifactSchemaType, ExposureSchema
+from elementary.monitor.fetchers.models.schema import (
+    ArtifactSchemaType,
+    ExposureSchema,
+)
 from elementary.monitor.fetchers.models.schema import (
     ModelRunSchema as FetcherModelRunSchema,
 )
-from elementary.monitor.fetchers.models.schema import ModelSchema, SourceSchema
+from elementary.monitor.fetchers.models.schema import (
+    ModelSchema,
+    SourceSchema,
+)
 from elementary.utils.log import get_logger
 
 logger = get_logger(__name__)
